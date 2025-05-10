@@ -1,9 +1,8 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import './App.css';
 
-// We'll create these components later
-const Home = () => <div>Home Page - Random Cats</div>;
 const Breeds = () => <div>Breeds Page</div>;
 const Favorites = () => <div>Favorites Page</div>;
 
@@ -16,21 +15,9 @@ function App() {
             <div className="flex justify-between items-center">
               <div className="text-xl font-bold text-blue-600">Cat Lover</div>
               <div className="space-x-4">
-                <Link to="/" className="text-gray-700 hover:text-blue-600">
-                  Home
-                </Link>
-                <Link
-                  to="/breeds"
-                  className="text-gray-700 hover:text-blue-600"
-                >
-                  Breeds
-                </Link>
-                <Link
-                  to="/favorites"
-                  className="text-gray-700 hover:text-blue-600"
-                >
-                  Favorites
-                </Link>
+                <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
+                <Link to="/breeds" className="text-gray-700 hover:text-blue-600">Breeds</Link>
+                <Link to="/favorites" className="text-gray-700 hover:text-blue-600">Favorites</Link>
               </div>
             </div>
           </div>
