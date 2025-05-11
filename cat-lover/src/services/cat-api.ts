@@ -29,11 +29,16 @@ export interface CatBreed {
   wikipedia_url: string;
 }
 
-export const fetchCats = async (limit: number = 10): Promise<CatImage[]> => {
+export const getCats = async (limit: number = 10): Promise<CatImage[]> => {
   console.log("hello");
   const response = await catApi.get<CatImage[]>("/images/search", {
     params: { limit, has_breeds: 1 },
   });
+  return response.data;
+};
+
+export const getCatById = async (id: string): Promise<CatImage> => {
+  const response = await catApi.get<CatImage>(`/images/${id}`);
   return response.data;
 };
 

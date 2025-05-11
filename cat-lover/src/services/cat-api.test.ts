@@ -1,5 +1,5 @@
 import MockAdapter from "axios-mock-adapter";
-import catApi, { fetchCats, getBreeds, getImagesByBreed } from "./cat-api";
+import catApi, { getCats, getBreeds, getImagesByBreed } from "./cat-api";
 import type { CatImage, CatBreed } from "./cat-api";
 
 describe("catApi", () => {
@@ -13,7 +13,7 @@ describe("catApi", () => {
     mock.restore();
   });
 
-  test("fetchCats calls the correct endpoint with parameters", async () => {
+  test("getCats calls the correct endpoint with parameters", async () => {
     const mockData: CatImage[] = [
       {
         id: "1",
@@ -28,7 +28,7 @@ describe("catApi", () => {
       .onGet("/images/search", { params: { limit: 5, has_breeds: 1 } })
       .reply(200, mockData);
 
-    const result = await fetchCats(5);
+    const result = await getCats(5);
 
     expect(result).toEqual(mockData);
   });
