@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // TODO MOVE TO ENV
-const API_KEY = "your-api-key";
+const API_KEY =
+  "live_bgpf9RUnXkOrMIYrIoTVLK810Jp5Ym6Dt9KX4FIpVuJptDIJoOgonTTKCCWHdabz";
 const BASE_URL = "https://api.thecatapi.com/v1";
 
 const catApi = axios.create({
@@ -11,6 +12,13 @@ const catApi = axios.create({
   },
 });
 
+export interface FavoriteCat {
+  id: number;
+  image_id: string;
+  sub_id?: string;
+  created_at: string;
+  image: CatImage;
+}
 export interface CatImage {
   id: string;
   url: string;
@@ -58,6 +66,27 @@ export const getImagesByBreed = async (
 ): Promise<CatImage[]> => {
   const response = await catApi.get<CatImage[]>("/images/search", {
     params: { breed_ids: breedId, limit },
+  });
+  return response.data;
+};
+
+export const getFavorites = async (): Promise<FavoriteCat[]> => {
+  const response = await catApi.get<FavoriteCat[]>("/favourites");
+  return response.data;
+};
+
+export const removeFavorite = async (
+  favoriteId: number,
+): Promise<{ message: string }> => {
+  const response = await catApi.delete<{ message: string }>(
+    `/favourites/${favoriteId}`,
+  );
+  return response.data;
+};
+
+export const addFavorite = async (imageId: string): Promise<{ id: number }> => {
+  const response = await catApi.post<{ id: number }>("/favourites", {
+    image_id: imageId,
   });
   return response.data;
 };
