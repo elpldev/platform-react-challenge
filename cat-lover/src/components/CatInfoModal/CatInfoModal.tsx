@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { type CatImage } from "../../services/cat-api";
+import { addFavorite, type CatImage } from "../../services/cat-api";
 import { useNavigate } from "react-router-dom";
 import "./CatInfoModal.css";
 
@@ -10,7 +10,7 @@ interface ModalProps {
 
 const CatInfoModal = ({ cat, onClose }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // Close modal when clicking outside
   useEffect(() => {
@@ -30,11 +30,18 @@ const CatInfoModal = ({ cat, onClose }: ModalProps) => {
   }, [onClose]);
 
   const handleAddFavorite = async () => {
-    console.log("handleAddFavorite");
+    try {
+      await addFavorite(cat.id);
+      alert("Added to favorites!");
+    } catch (error) {
+      console.error("Failed to add to favorites:", error);
+      alert("Failed to add to favorites");
+    }
   };
 
   const goToBreed = (breedId: string) => {
-    console.log("goToBreed", breedId);
+    navigate(`/breeds?breed=${breedId}`);
+    onClose();
   };
 
   return (
