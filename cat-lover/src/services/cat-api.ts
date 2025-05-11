@@ -36,4 +36,25 @@ export const fetchCats = async (limit: number = 10): Promise<CatImage[]> => {
   });
   return response.data;
 };
+
+export const getBreeds = async (): Promise<CatBreed[]> => {
+  try {
+    const response = await catApi.get<CatBreed[]>("/breeds");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching breeds:", error);
+    throw error;
+  }
+};
+
+export const getImagesByBreed = async (
+  breedId: string,
+  limit = 10,
+): Promise<CatImage[]> => {
+  const response = await catApi.get<CatImage[]>("/images/search", {
+    params: { breed_ids: breedId, limit },
+  });
+  return response.data;
+};
+
 export default catApi;
