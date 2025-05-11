@@ -1,3 +1,5 @@
+@import "../../styles/variables.css";
+
 .breed-modal-content {
     max-width: 1400px;
   }
@@ -8,7 +10,7 @@
   
   .breed-header h2 {
     font-size: 2.2rem;
-    color: #ff6b6b;
+    color: var(--primary-color);
     margin-bottom: 15px;
     border: none;
   }
@@ -22,8 +24,8 @@
   .breed-details {
     margin-top: 20px;
     padding: 25px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
     line-height: 1.8;
     font-size: 1.1rem;
   }
@@ -33,7 +35,7 @@
   }
   
   .breed-details a {
-    color: #ff6b6b;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
   }
@@ -52,7 +54,7 @@
   .breed-image-card {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--primary-shadow);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
@@ -60,7 +62,7 @@
   
   .breed-image-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--card-shadow-hover);
   }
   
   .breed-image-card img {
@@ -69,4 +71,3 @@
     object-fit: cover;
     display: block;
   }
-  

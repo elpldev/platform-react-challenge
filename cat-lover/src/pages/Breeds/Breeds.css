@@ -1,4 +1,6 @@
- .breeds-container {
+@import "../../styles/variables.css";
+
+.breeds-container {
     padding: 20px 0;
   }
 
@@ -12,7 +14,7 @@
     background-color: white;
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--primary-shadow);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
@@ -22,11 +24,11 @@
   
   .breed-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--card-shadow-hover);
   }
   
   .breed-card h3 {
-    color: #ff6b6b;
+    color: var(--primary-color);
     margin-bottom: 15px;
     font-size: 1.5rem;
   }
