@@ -1,0 +1,102 @@
+@import "../../styles/variables.css";
+
+.favorites-container {
+    padding: 20px 0;
+  }
+  
+  .favorites-count {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .favorite-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--primary-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .favorite-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+  }
+  
+  .favorite-image-container {
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .favorite-image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .remove-favorite-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .remove-favorite-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .favorite-breed {
+    padding: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    background-color: white;
+    font-size: 1.1rem;
+  }
+  
+  .empty-favorites {
+    text-align: center;
+    margin-top: 80px;
+    padding: 50px;
+    background-color: var(--background-color);
+    border-radius: 12px;
+    box-shadow: var(--primary-shadow);
+  }
+  
+  .empty-favorites p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1.3rem;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    margin-top: 80px;
+    color: #666;
+    font-size: 1.3rem;
+  }

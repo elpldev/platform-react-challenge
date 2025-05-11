@@ -11,6 +11,7 @@ const Home: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    console.log("fetching");
     const fetchPageCats = async () => {
       try {
         setLoading(true);
@@ -56,6 +57,7 @@ const Home: React.FC = () => {
   };
 
   const loadMore = async () => {
+    console.log("loadMore");
     try {
       setLoading(true);
       const moreCats = await getCats(10);
