@@ -45,8 +45,30 @@ const CatInfoModal = ({ cat, onClose }: ModalProps) => {
         </button>
         <img src={cat.url} alt="Cat" className="modal-image" />
 
-        {cat.breeds && cat.breeds.length > 0 ? (
-          <div className="breed-info">hello</div>
+        {cat?.breeds && cat?.breeds?.length > 0 ? (
+          <div className="breed-info">
+            <h3>{cat.breeds[0]?.name}</h3>
+            <p>{cat.breeds[0]?.description}</p>
+            <p>
+              <strong>Origin:</strong> {cat.breeds[0]?.origin}
+            </p>
+            <p>
+              <strong>Temperament:</strong> {cat.breeds[0]?.temperament}
+            </p>
+            <p>
+              <strong>Life Span:</strong> {cat.breeds[0]?.life_span} years
+            </p>
+            {cat.breeds[0]?.wikipedia_url && (
+              <p>
+                <a href={cat.breeds[0].wikipedia_url} target="_blank">
+                  Learn more on Wikipedia
+                </a>
+              </p>
+            )}
+            <button onClick={() => goToBreed(cat.breeds[0].id)}>
+              See more {cat.breeds[0]?.name} cats
+            </button>
+          </div>
         ) : (
           <p>No breed information available for this cat.</p>
         )}
