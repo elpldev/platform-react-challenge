@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchCats, type CatImage } from "../services/cat-api";
-import CatInfoModal from "../components/CatModal/CatInfoModal";
+import CatInfoModal from "../components/CatInfoModal/CatInfoModal";
 
 const Home: React.FC = () => {
   const [cats, setCats] = useState<CatImage[]>([]);
