@@ -1,33 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import './App.css';
-
-const Breeds = () => <div>Breeds Page</div>;
-const Favorites = () => <div>Favorites Page</div>;
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        <nav className="bg-white shadow-md">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex justify-between items-center">
-              <div className="text-xl font-bold text-blue-600">Cat Lover</div>
-              <div className="space-x-4">
-                <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
-                <Link to="/breeds" className="text-gray-700 hover:text-blue-600">Breeds</Link>
-                <Link to="/favorites" className="text-gray-700 hover:text-blue-600">Favorites</Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+      <div className="app-container">
+        <header>
+          <h1>CatLover</h1>
+          <nav>
+            <Link to="/">Cats Home</Link>
+            <Link to="/breeds">Breeds</Link>
+            <Link to="/favorites">Favorites</Link>
+          </nav>
+        </header>
 
-        <main className="container mx-auto px-4 py-8">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/breeds" element={<Breeds />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/breeds" element={<Home />} />
+            <Route path="/favorites" element={<Home />} />
           </Routes>
         </main>
       </div>
