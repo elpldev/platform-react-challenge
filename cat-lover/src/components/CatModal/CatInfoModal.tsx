@@ -1,0 +1,63 @@
+import { useEffect, useRef } from "react";
+import { type CatImage } from "../../services/cat-api";
+import { useNavigate } from "react-router-dom";
+import "./CatInfoModal.css";
+
+interface ModalProps {
+  cat: CatImage;
+  onClose: () => void;
+}
+
+const CatInfoModal = ({ cat, onClose }: ModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+  // const navigate = useNavigate();
+
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
+  const handleAddFavorite = async () => {
+    console.log("handleAddFavorite");
+  };
+
+  const goToBreed = (breedId: string) => {
+    console.log("goToBreed", breedId);
+  };
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content" ref={modalRef}>
+        <button className="modal-close" onClick={onClose}>
+          ×
+        </button>
+        <img src={cat.url} alt="Cat" className="modal-image" />
+
+        {cat.breeds && cat.breeds.length > 0 ? (
+          <div className="breed-info">hello</div>
+        ) : (
+          <p>No breed information available for this cat.</p>
+        )}
+
+        <div className="favorite-form">
+          <h4>Like this cat?</h4>
+          <button onClick={handleAddFavorite}>Add to Favorites</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CatInfoModal;
