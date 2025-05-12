@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# Cat Lover App
+## Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installation
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Running the Development Server
+```bash
+npm run dev
 ```
+This will start the development server at http://localhost:5173
+
+### Running Tests
+```bash
+npm run test
+```
+
+For watching mode during development:
+```bash
+npm run test:watch
+```
+
+## Tech Stack
+
+### Core Technologies
+- **React 19**: Component Based UI
+- **TypeScript**: For type checking
+- **Vite**: Chosen as the build tool for its quick set up and fast development exeperience 
+- **React Router v7**: Chosen for client side routing with the latest features for navigation and URL parameter handling
+
+### Styling Approach
+- **Pure CSS**: Chose vanilla CSS over CSS frameworks for a lightweight bundle and put some effort on this field 
+
+### API Integration
+- **Axios**: Used for HTTP requests to the api
+
+## Testing
+- **Jest**: As the test runner and assertion library
+- **React Testing Library**: For component testing 
+- **Axios Mock Adapter**: For mocking API calls in tests
+
+## Future Improvements
+- **Responsive design**: Currently, the application is not working perfectly on mobile. If I had additional time I would improve that.
+- **CSS Extraction to Variables**: A lot more work could be done on this field, create more variables which then used across the application.
+- **Improving test coverage**: Whilst the current test suite include a couple tests. If I had more time I would add more tests for edge cases and integration points.
+- **Improve Performance**: Techniques like lazy loading and pagination could be implemented to ensure only necessary files are being downloaded.
+- **FolderStructure**: The current folder structure is basic given the size of the application, different approaches like Atomic design or Feature based could be used.
+
+## Thank you!
