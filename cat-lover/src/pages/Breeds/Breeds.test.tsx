@@ -1,6 +1,6 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Breeds from "./Breeds";
+import Breeds from ".";
 import { getBreeds, getImagesByBreed } from "../../services/cat-api";
 
 jest.mock("../../services/cat-api");

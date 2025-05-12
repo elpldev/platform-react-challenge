@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getCats, type CatImage, getCatById } from "../services/cat-api";
-import CatInfoModal from "../components/CatInfoModal/CatInfoModal";
+import CatInfoModal from "../components/CatInfoModal";
 import { useSearchParams } from "react-router-dom";
 
 const Home: React.FC = () => {

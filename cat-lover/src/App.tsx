@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Breeds from "./pages/Breeds/Breeds";
+import Breeds from "./pages/Breeds";
 import Favorites from "./pages/Favorites";
 
 function App() {
