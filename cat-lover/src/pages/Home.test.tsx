@@ -2,6 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "./Home";
 import { getCats } from "../services/cat-api";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../services/cat-api", () => ({
   getCats: jest.fn(),
@@ -20,7 +21,11 @@ describe("Home Component", () => {
   test("displays loading state initially and then renders cats after fetch", async () => {
     (getCats as jest.Mock).mockResolvedValue(mockCats);
 
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText("Loading cats...")).toBeInTheDocument();
 
@@ -43,7 +48,11 @@ describe("Home Component", () => {
       .mockResolvedValueOnce(mockCats)
       .mockResolvedValueOnce(moreCats);
 
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
 
     await waitFor(() => {
       expect(screen.queryByText("Loading cats...")).not.toBeInTheDocument();
@@ -62,7 +71,11 @@ describe("Home Component", () => {
   test("displays error message when fetch fails", async () => {
     (getCats as jest.Mock).mockRejectedValue(new Error("API error"));
 
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
 
     await waitFor(() => {
       expect(

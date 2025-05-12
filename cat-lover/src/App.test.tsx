@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "./App";
 
-describe("App Component", () => {
+describe("App Main Page", () => {
   test("renders navigation links", () => {
     render(<App />);
 
@@ -18,14 +18,14 @@ describe("App Component", () => {
   test("renders app title", () => {
     render(<App />);
 
-    const titleElement = screen.getByText(/cat lover/i);
+    const titleElement = screen.getByText(/CatLover/i);
     expect(titleElement).toBeInTheDocument();
   });
 
   test("renders home page by default", () => {
     render(<App />);
 
-    const homePageElement = screen.getByText(/home page - random cats/i);
+    const homePageElement = screen.getByText(/Cats Home/i);
     expect(homePageElement).toBeInTheDocument();
   });
 });
