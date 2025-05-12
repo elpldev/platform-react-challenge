@@ -35,7 +35,7 @@ npm run test:watch
 - **React Router v7**: Chosen for client side routing with the latest features for navigation and URL parameter handling
 
 ### Styling Approach
-- **Pure CSS**: Chose vanilla CSS over CSS frameworks for a lightweight bundle and put some effort on this field 
+- **Pure CSS**: Chose vanilla CSS over CSS frameworks for a lightweight bundle and put some effort on this field. I have created some variables and I have extracted common css under App.css .
 
 ### API Integration
 - **Axios**: Used for HTTP requests to the api
@@ -51,5 +51,6 @@ npm run test:watch
 - **Improving test coverage**: Whilst the current test suite include a couple tests. If I had more time I would add more tests for edge cases and integration points.
 - **Improve Performance**: Techniques like lazy loading and pagination could be implemented to ensure only necessary files are being downloaded.
 - **FolderStructure**: The current folder structure is basic given the size of the application, different approaches like Atomic design or Feature based could be used.
+- **Window Alerts**: If I had more time i would create proper modals for successful and failed requests for favorite API calls. 
 
 ## Thank you!
