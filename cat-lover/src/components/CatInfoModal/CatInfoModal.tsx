@@ -40,8 +40,8 @@ const CatInfoModal = ({ cat, onClose }: ModalProps) => {
   };
 
   const goToBreed = (breedId: string) => {
+    console.log("gotToBreed", breedId);
     navigate(`/breeds?breed=${breedId}`);
-    onClose();
   };
 
   return (
