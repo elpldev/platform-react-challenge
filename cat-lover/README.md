@@ -21,11 +21,6 @@ This will start the development server at http://localhost:5173
 npm run test
 ```
 
-For watching mode during development:
-```bash
-npm run test:watch
-```
-
 ## Tech Stack
 
 ### Core Technologies
@@ -46,7 +41,7 @@ npm run test:watch
 - **Axios Mock Adapter**: For mocking API calls in tests
 
 ## Future Improvements
-- **Responsive design**: Currently, the application is not working perfectly on mobile. If I had additional time I would improve that.
+- **Responsive design**: Currently, the application is not working perfectly on mobile. If I had additional time I would improve that using media queries.
 - **CSS Extraction to Variables**: A lot more work could be done on this field, create more variables which then used across the application.
 - **Improving test coverage**: Whilst the current test suite include a couple tests. If I had more time I would add more tests for edge cases and integration points.
 - **Improve Performance**: Techniques like lazy loading and pagination could be implemented to ensure only necessary files are being downloaded.
